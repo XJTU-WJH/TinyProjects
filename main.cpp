@@ -6,7 +6,7 @@ using std::endl;
 using std::vector;
 using std::string;
 
-//#include"linq_to_objects/linq_to_objects.hpp"
+#include"linq_to_objects/linq_to_objects.hpp"
 
 struct Person
 {
@@ -32,7 +32,8 @@ private:
 void TestLinqCpp()
 {
 	vector<Person>v={{21,"wjh","shanghai"},{22,"bb","wuhan"},{20,"bqf","zhuhai"}};
-	//auto count=from(v);
+	auto count=from(v).where([](const Person& p){return p.age>20;}).count();
+	cout<<count<<endl;
 }
 
 int main()
